@@ -31,48 +31,6 @@ function checkPrime(arr) {
 
 // Problem2
 
-let data = [
-  {
-    name: "Hewie",
-    age: 9,
-    promoted: true,
-    gender: "Male",
-  },
-  {
-    name: "Brantley",
-    age: 14,
-    promoted: true,
-    gender: "Female",
-  },
-  {
-    name: "Sophie",
-    age: 8,
-    promoted: true,
-    gender: "Female",
-  },
-  {
-    name: "alvin",
-    age: 14,
-    promoted: false,
-    gender: "Male",
-  },
-];
-
-/* expected out put
-{
-    "totalPromoted": 7,
-    "totalPromotedAvgAge": 16,
-    "totalPromotedUnder15": 6,
-    "totalAgePromotedMale": 52,
-    "totalPromotedFemaleAscByAge": [
-      { "name": "Dalenna", "age": 10, "promoted": true, "gender": "Female" },
-      { "name": "Reggis", "age": 12, "promoted": true, "gender": "Female" },
-      { "name": "Jacobo", "age": 13, "promoted": true, "gender": "Female" }
-    ]
-  }
-
-*/
-
 function checkPromoted(data) {
   let isArray = Array.isArray(data);
   if (!isArray) {
@@ -122,9 +80,18 @@ function checkPromoted(data) {
 
 // Problem3
 
-
 let checkApiResponse = () => {
-}
 
+  try{
+     return axios.get("http://localhost:8080/houses")
+  .then((res) => {
+    console.log(res.data);
+    return res.data;
+  });
+  }catch(er){
 
-module.exports = { checkPrime, checkPromoted ,checkApiResponse };
+  }
+ 
+};
+
+module.exports = { checkPrime, checkPromoted, checkApiResponse };
